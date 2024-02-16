@@ -1,0 +1,55 @@
+{
+	"interact":{
+		"magic": "APF_VER_1",
+		"variables": [
+			{
+				"name": "Lives",
+				"id": 0,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 2,
+				"value": 0,
+				"mask": "0xFFFCFFFF",
+				"options": [
+					{
+						"name": "1",
+						"value": "0x020000"
+					},
+					{
+						"name": "2",
+						"value": "0x010000"
+					},					
+					{
+						"name": "3",
+						"value": "0x000000"
+					},
+					{
+						"name": "5",
+						"value": "0x030000"
+					}
+				]
+			},
+			{
+				"name": "GameId",
+				"id": 10,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"address": "0x80000000",
+				"writeonly": true,
+				"defaultval": 0,
+				"mask": "0x00000000",
+				"options": [				
+				{
+					"value": 1,
+					"name": "Druaga"
+				}
+				]
+			}
+		],
+		"messages": []
+	}
+}

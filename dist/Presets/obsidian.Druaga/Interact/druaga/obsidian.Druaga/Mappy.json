@@ -1,0 +1,147 @@
+{
+	"interact":{
+		"magic": "APF_VER_1",
+		"variables": [
+			{
+				"name": "Lives",
+				"id": 0,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 2,
+				"value": 0,
+				"mask": "0xFFFF3FFF",
+				"options": [
+					{
+						"name": "1",
+						"value": "0x8000"
+					},
+					{
+						"name": "2",
+						"value": "0xC000"
+					},					
+					{
+						"name": "3",
+						"value": "0x0000"
+					},
+					{
+						"name": "5",
+						"value": "0x4000"
+					}
+				]
+			},
+			{
+				"name": "Difficulty",
+				"id": 1,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 0,
+				"value": 0,
+				"mask": "0xFFF8FFFF",
+				"options": [
+					{
+						"name": "Rank A",
+						"value": "0x000000"
+					},
+					{
+						"name": "Rank B",
+						"value": "0x010000"
+					},
+					{
+						"name": "Rank C",
+						"value": "0x020000"
+					},
+					{
+						"name": "Rank D",
+						"value": "0x030000"
+					},
+					{
+						"name": "Rank E",
+						"value": "0x040000"
+					},
+					{
+						"name": "Rank F",
+						"value": "0x050000"
+					},
+					{
+						"name": "Rank G",
+						"value": "0x060000"
+					},
+					{
+						"name": "Rank H",
+						"value": "0x070000"
+					}
+				]
+			},
+			{
+				"name": "Bonus",
+				"id": 2,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 0,
+				"value": 0,
+				"mask": "0xFFFFC7FF",
+				"options": [
+					{
+						"name": "20k/70k",
+						"value": "0x0000"
+					},
+					{
+						"name": "20k/60k",
+						"value": "0x0800"
+					},					
+					{
+						"name": "20k/80k",
+						"value": "0x1000"
+					},
+					{
+						"name": "30k/100k",
+						"value": "0x1800"
+					},
+					{
+						"name": "20k only",
+						"value": "0x2000"
+					},
+					{
+						"name": "20k/70k/every",
+						"value": "0x2800"
+					},
+					{
+						"name": "20k/80k/every",
+						"value": "0x3000"
+					},
+					{					
+						"name": "None",
+						"value": "0x3800"
+					}
+				]
+			},
+			{
+				"name": "GameId",
+				"id": 10,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"address": "0x80000000",
+				"writeonly": true,
+				"defaultval": 0,
+				"mask": "0x00000000",
+				"options": [				
+				{
+					"value": 2,
+					"name": "Mappy"
+				}
+				]
+			}
+		],
+		"messages": []
+	}
+}

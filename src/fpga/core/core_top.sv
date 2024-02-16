@@ -437,15 +437,57 @@ core_bridge_cmd icb (
 // Core Settings
 ///////////////////////////////////////////////
 
-reg [2:0] game_model; // set to '5' for Super Pacman, '6' for Grobda
+// Board type defines
+parameter [2:0] BOARD_TYPE_DRUAGA=3'b0;
+parameter [2:0] BOARD_TYPE_SUPERPAC=3'd5;
+parameter [2:0] BOARD_TYPE_GROBDA=3'd6;
+
+// Game type defines
+parameter [2:0] GAME_ID_DRUAGA=3'd1;
+parameter [2:0] GAME_ID_MAPPY=3'd2;
+parameter [2:0] GAME_ID_DIGDUG2=3'd3;
+parameter [2:0] GAME_ID_MOTOS=3'd4;
+parameter [2:0] GAME_ID_SUPERPAC=3'd5;
+parameter [2:0] GAME_ID_GROBDA=3'd6;
+
+reg [2:0] game_id;
+reg [2:0] board_model; 
+reg [31:0] game_settings;
 
 always @(posedge clk_74a) begin
   if(bridge_wr) begin
     casex(bridge_addr)
-      32'hF9000000: game_model	 <= bridge_wr_data[1:0];      
+      32'h80000000: begin 
+			game_id		 	<= bridge_wr_data[2:0];  
+		end
+		32'h90000000: begin 
+			game_settings 	<= bridge_wr_data[31:0];
+		end
     endcase
   end
 end
+
+
+reg [7:0] dip_2;
+reg [7:0] dip_1;
+reg [7:0] dip_0;
+	
+always @(posedge clk_74a) begin
+	if (game_id == GAME_ID_GROBDA) begin
+		board_model <= BOARD_TYPE_GROBDA;
+	end
+	else if (game_id == GAME_ID_SUPERPAC) begin
+		board_model <= BOARD_TYPE_SUPERPAC;
+	end
+	else begin
+		board_model <= BOARD_TYPE_DRUAGA;
+	end
+	
+	dip_2 <= game_settings[23:16];
+	dip_1 <= game_settings[15:8]; 
+	dip_0 <= game_settings[7:0];
+end
+ 
 
 ///////////////////////////////////////////////
 // System
@@ -711,16 +753,16 @@ fpga_druaga fpga_druaga_dut (
     .INP1({m_fire_b2, m_fire_2, m_left_2, m_down_2, m_right_2, m_up_2}),           // 2P {B2,B1,L,D,R,U}
     .INP2({m_coin, m_start2, m_start1}),            // {Coin,Start2P,Start1P}
 
-    .DSW0(0),       // DIPSWs (Active Logic)
-    .DSW1(0),
-    .DSW2(0),
+    .DSW0(dip_0),       // DIPSWs (Active Logic)
+    .DSW1(dip_1),
+    .DSW2(dip_2),
 
     .ROMCL(clk_sys),  // Downloaded ROM image
     .ROMAD(ioctl_addr[16:0]),
     .ROMDT(ioctl_dout),
     .ROMEN(ioctl_addr[23:17] == 0 && !ioctl_index),
 	 
-    .MODEL(0),    // Type Number, 5 for Super Pacman, 6 for Grobda
+    .MODEL(board_model),    // Type Number, 5 for Super Pacman, 6 for Grobda
     .flip_screen(0)
 );
 

@@ -1,0 +1,115 @@
+{
+	"interact":{
+		"magic": "APF_VER_1",
+		"variables": [
+			{
+				"name": "Lives",
+				"id": 0,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 2,
+				"value": 0,
+				"mask": "0xFFFCFFFF",
+				"options": [
+					{
+						"name": "1",
+						"value": "0x020000"
+					},
+					{
+						"name": "2",
+						"value": "0x010000"
+					},					
+					{
+						"name": "3",
+						"value": "0x000000"
+					},
+					{
+						"name": "5",
+						"value": "0x030000"
+					}
+				]
+			},
+			{
+				"name": "Difficulty",
+				"id": 1,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 0,
+				"value": 0,
+				"mask": "0xFFF3FFFF",
+				"options": [
+					{
+						"name": "Rank A",
+						"value": "0x000000"
+					},
+					{
+						"name": "Rank B",
+						"value": "0x040000"
+					},
+					{
+						"name": "Rank C",
+						"value": "0x080000"
+					},
+					{
+						"name": "Rank D",
+						"value": "0x0C0000"
+					}
+				]
+			},
+			{
+				"name": "Bonus",
+				"id": 2,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 0,
+				"value": 0,
+				"mask": "0xFF3FFFFF",
+				"options": [
+					{
+						"name": "10k/50k/every",
+						"value": "0x000000"
+					},
+					{
+						"name": "10k/30k",
+						"value": "0x400000"
+					},					
+					{
+						"name": "10k",
+						"value": "0x800000"
+					},
+					{
+						"name": "None",
+						"value": "0xC00000"
+					}
+				]
+			},
+			{
+				"name": "GameId",
+				"id": 10,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"address": "0x80000000",
+				"writeonly": true,
+				"defaultval": 0,
+				"mask": "0x00000000",
+				"options": [				
+				{
+					"value": 6,
+					"name": "Grobda"
+				}
+				]
+			}
+		],
+		"messages": []
+	}
+}

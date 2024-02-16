@@ -1,0 +1,179 @@
+{
+	"interact":{
+		"magic": "APF_VER_1",
+		"variables": [
+			{
+				"name": "Lives",
+				"id": 0,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 2,
+				"value": 0,
+				"mask": "0xFF3FFFFF",
+				"options": [
+					{
+						"name": "3",
+						"value": "0x000000"
+					},
+					{
+						"name": "2",
+						"value": "0x800000"
+					},					
+					{
+						"name": "1",
+						"value": "0x400000"
+					},
+					{
+						"name": "5",
+						"value": "0xC00000"
+					}
+				]
+			},
+			{
+				"name": "Difficulty",
+				"id": 1,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 0,
+				"value": 0,
+				"mask": "0xFFFFF0FF",
+				"options": [
+					{
+						"name": "Rank 0 - Normal",
+						"value": "0x0000"
+					},
+					{
+						"name": "Rank 1",
+						"value": "0x0100"
+					},
+					{
+						"name": "Rank 2",
+						"value": "0x0200"
+					},
+					{
+						"name": "Rank 3",
+						"value": "0x0300"
+					},
+					{
+						"name": "Rank 4",
+						"value": "0x0400"
+					},
+					{
+						"name": "Rank 5",
+						"value": "0x0500"
+					},
+					{
+						"name": "Rank 6 - Medium",
+						"value": "0x0600"
+					},
+					{
+						"name": "Rank 7",
+						"value": "0x0700"
+					},
+					{
+						"name": "Rank 8 - Default",
+						"value": "0x0800"
+					},
+					{
+						"name": "Rank 9",
+						"value": "0x0900"
+					},
+					{
+						"name": "Rank A",
+						"value": "0x0A00"
+					},
+					{
+						"name": "Rank B - Hardest",
+						"value": "0x0B00"
+					},
+					{
+						"name": "Rank C - Easy (Auto)",
+						"value": "0x0C00"
+					},
+					{
+						"name": "Rank D - (Auto)",
+						"value": "0x0D00"
+					},
+					{
+						"name": "Rank E - (Auto)",
+						"value": "0x0E00"
+					},
+					{
+						"name": "Rank F - (Auto)",
+						"value": "0x0F00"
+					}
+				]
+			},
+			{
+				"name": "Bonus",
+				"id": 2,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"writeonly": true,
+				"address": "0x90000000",
+				"defaultval": 0,
+				"value": 0,
+				"mask": "0xFFC7FFFF",
+				"options": [
+					{
+						"name": "30k/100k",
+						"value": "0x000000"
+					},
+					{
+						"name": "30k/80k",
+						"value": "0x080000"
+					},
+					{
+						"name": "30k/120k",
+						"value": "0x100000"
+					},					
+					{
+						"name": "30k/80k/every",
+						"value": "0x180000"
+					},
+					{
+						"name": "30k/100k/every",
+						"value": "0x200000"
+					},
+					{
+						"name": "30k/120k/every",
+						"value": "0x280000"
+					},
+					{
+						"name": "30k",
+						"value": "0x300000"
+					},
+					{					
+						"name": "None",
+						"value": "0x380000"
+					}
+				]
+			},
+			{
+				"name": "GameId",
+				"id": 10,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"address": "0x80000000",
+				"writeonly": true,
+				"defaultval": 0,
+				"mask": "0x00000000",
+				"options": [				
+				{
+					"value": 5,
+					"name": "SuperPac"
+				}
+				]
+			}
+		],
+		"messages": []
+	}
+}
