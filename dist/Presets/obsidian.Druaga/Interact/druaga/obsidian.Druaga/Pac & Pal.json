@@ -1,0 +1,25 @@
+{
+	"interact":{
+		"magic": "APF_VER_1",
+		"variables": [
+			{
+				"name": "GameId",
+				"id": 10,
+				"type": "list",
+				"enabled": true,
+				"persist": true,
+				"address": "0x80000000",
+				"writeonly": true,
+				"defaultval": 0,
+				"mask": "0x00000000",
+				"options": [				
+				{
+					"value": 5,
+					"name": "PacNPal"
+				}
+				]
+			}
+		],
+		"messages": []
+	}
+}
