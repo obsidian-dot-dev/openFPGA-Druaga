@@ -13,13 +13,15 @@ Supports other games using the same board, including:
 ## Known Issues
 
 * High Score saving doesn't work.
-* Many dip switch settings don't work properly.  Defaults should be fine however.
+* Dips not supported.
 * Does not support Pac & Pal.
 * Video flicker reported for Mappy when played in Dock.
 
 Note:  File bugs for issues you encounter on the Github tracker.  Any issues are most likely with my integration, and not with the cores themselves.  Please do not engage the original core authors for support requests related to this port.
 
 ## History 
+0.9.2
+* Temporarily disabling dip switches until I can debug them.
 
 0.9.1
 * Add support for Super Pac-Man & Grobda

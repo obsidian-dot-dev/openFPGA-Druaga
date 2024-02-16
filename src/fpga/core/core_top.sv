@@ -468,10 +468,6 @@ always @(posedge clk_74a) begin
 end
 
 
-reg [7:0] dip_2;
-reg [7:0] dip_1;
-reg [7:0] dip_0;
-	
 always @(posedge clk_74a) begin
 	if (game_id == GAME_ID_GROBDA) begin
 		board_model <= BOARD_TYPE_GROBDA;
@@ -482,10 +478,6 @@ always @(posedge clk_74a) begin
 	else begin
 		board_model <= BOARD_TYPE_DRUAGA;
 	end
-	
-	dip_2 <= game_settings[23:16];
-	dip_1 <= game_settings[15:8]; 
-	dip_0 <= game_settings[7:0];
 end
  
 
@@ -753,9 +745,9 @@ fpga_druaga fpga_druaga_dut (
     .INP1({m_fire_b2, m_fire_2, m_left_2, m_down_2, m_right_2, m_up_2}),           // 2P {B2,B1,L,D,R,U}
     .INP2({m_coin, m_start2, m_start1}),            // {Coin,Start2P,Start1P}
 
-    .DSW0(dip_0),       // DIPSWs (Active Logic)
-    .DSW1(dip_1),
-    .DSW2(dip_2),
+    .DSW0(0),       // DIPSWs (Active Logic)
+    .DSW1(0),
+    .DSW2(0),
 
     .ROMCL(clk_sys),  // Downloaded ROM image
     .ROMAD(ioctl_addr[16:0]),
