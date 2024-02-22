@@ -22,7 +22,8 @@ Note:  File bugs for issues you encounter on the Github tracker.  Any issues are
 
 ## History 
 PENDING
-* Adding additional configs for Pac-man and Chomp Chomp
+* Adding additional configs for Pac-man and Chomp Chomp.
+* Add coin pulse signal to fix issues with coin input not registering.
 
 0.9.2
 * Temporarily disabling dip switches until I can debug them.

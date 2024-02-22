@@ -521,6 +521,18 @@ data_loader #(
     .write_data(ioctl_dout)
 );
 
+//
+// Coin Pulse
+//
+
+wire m_coin_pulse;
+shortpulse coin_pulse(
+	.clk(clk_sys),
+	.inp(m_coin),
+	.pulse(m_coin_pulse)
+);
+	
+
 ///////////////////////////////////////////////
 // High Score
 ///////////////////////////////////////////////
@@ -743,7 +755,7 @@ fpga_druaga fpga_druaga_dut (
                                // Sticks and Buttons (Active Logic)
     .INP0({m_fire_b, m_fire, m_left, m_down, m_right, m_up}),           // 1P {B2,B1,L,D,R,U}
     .INP1({m_fire_b2, m_fire_2, m_left_2, m_down_2, m_right_2, m_up_2}),           // 2P {B2,B1,L,D,R,U}
-    .INP2({m_coin, m_start2, m_start1}),            // {Coin,Start2P,Start1P}
+    .INP2({m_coin_pulse, m_start2, m_start1}),            // {Coin,Start2P,Start1P}
 
     .DSW0(0),       // DIPSWs (Active Logic)
     .DSW1(0),
@@ -830,3 +842,31 @@ end
 endmodule
 
 
+module shortpulse
+(
+   input    clk,
+   input    inp,
+   output   pulse
+);
+
+reg        out;
+reg [19:0] pulse_cnt = 0;
+
+always_ff @(posedge clk) begin
+
+   reg old_inp;
+   out <= 1'b0;
+
+   if (|pulse_cnt) begin
+      pulse_cnt <= pulse_cnt - 1'b1;
+      out <= 1'b1;
+   end else begin
+      old_inp <= inp;
+      if (old_inp && !inp) pulse_cnt <= 20'hFFFFF;
+   end
+
+end
+
+assign pulse = out;
+
+endmodule
