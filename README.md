@@ -21,6 +21,10 @@ Supports other games using the same board, including:
 Note:  File bugs for issues you encounter on the Github tracker.  Any issues are most likely with my integration, and not with the cores themselves.  Please do not engage the original core authors for support requests related to this port.
 
 ## History 
+
+0.9.4
+* Updated version fields 
+
 0.9.3
 * Adding additional configs for Pac-man and Chomp Chomp.
 * Add coin pulse signal to fix issues with coin input not registering.
