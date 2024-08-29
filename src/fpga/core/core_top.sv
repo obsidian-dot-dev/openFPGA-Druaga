@@ -641,6 +641,7 @@ assign video_skip = 0;
 
 always @(posedge clk_core_6) begin
     video_de_reg <= 0;
+	 video_rgb_reg <= 24'd0;
 	 
     if (~(vblank_core || hblank_core)) begin
         video_de_reg <= 1;
